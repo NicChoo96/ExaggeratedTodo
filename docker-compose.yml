@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./todobackend
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DB
+      - MYSQL_PORT=$MYSQL_DOCKER_PORT
+    volumes:
+      - ./todobackend:/app
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    depends_on:
+      - db
+    command: ['yarn', 'start']
+  db:
+    container_name: todo_mysql_db
+    image: mysql
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_HOST: $MYSQL_USER
+      MYSQL_ROOT_PASSWORD: $MYSQLDB_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DB
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: todo12345
+    volumes:
+      - todo-data_volume:/var/lib/mysql
+    ports:
+      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+  site:
+    build:
+      context: ./todolist
+      dockerfile: Dockerfile
+    volumes:
+      - ./todolist:/usr/app
+    ports:
+      - 8080:3000
+  sqladmin-todo:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8002:80'
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+volumes:
+  todo-data_volume:
