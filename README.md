@@ -12,7 +12,7 @@ The sole purpose of this project is for me to use as much libraries for construc
 
 * Database
     - MySQL
-    - phpAdmin for administrating MySQL
+    - phpAdmin for administrating MySQL Database
 
 * Frontend
     - NextJS
