@@ -2,7 +2,7 @@
 Project Exaggeration of TodoList with extensive amount of technologies
 
 ## Welcome to my Exaggerated Todo Project
-The sole purpose of this project is for me to use as much libraries for constructing a containerized multiple service self-contained application, using Docker.
+The sole purpose of this project is for me to use as much libraries for constructing a containerized multiple service self-contained application, using Docker and DockerCompose.
 
 ### These are some of the core technologies used so far:
 * Server
