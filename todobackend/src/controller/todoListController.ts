@@ -3,7 +3,7 @@ import { TodoItemProp } from "../interfaces/TodoItemInterface";
 
 export class TodoController {
     viewAll = ()=> viewAllTodos()
-    addNew = (props:TodoItemProp)=> addNewTodo(props)
-    updateExisting = (props:TodoItemProp, todoId:number) => updateTodo(props, todoId)
-    deleteExisting = (todoId:number) => deleteTodo(todoId)
+    addNew = async(props:TodoItemProp)=> await addNewTodo(props)
+    updateExisting = async(props:TodoItemProp, todoId:number) => await updateTodo(props, todoId)
+    deleteExisting = async(todoId:number) => await deleteTodo(todoId)
 }

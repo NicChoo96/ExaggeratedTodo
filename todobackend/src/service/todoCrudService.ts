@@ -15,7 +15,7 @@ export const viewAllTodos = ()=> {
 
 export const addNewTodo = async(props: TodoItemProp)=> {
     
-    await AppDataSource
+    return await AppDataSource
         .createQueryBuilder()
         .insert()
         .into(TodoList)
@@ -24,7 +24,7 @@ export const addNewTodo = async(props: TodoItemProp)=> {
 }
 
 export const updateTodo = async(props: TodoItemProp, todoId:number) => {
-    await AppDataSource
+    return await AppDataSource
         .createQueryBuilder()
         .update(TodoList)
         .set(props)
@@ -33,7 +33,7 @@ export const updateTodo = async(props: TodoItemProp, todoId:number) => {
 }
 
 export const deleteTodo = async(todoId:number) => {
-    await AppDataSource
+    return await AppDataSource
         .createQueryBuilder()
         .delete()
         .from(TodoList)
