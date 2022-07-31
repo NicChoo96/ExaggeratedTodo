@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Nic_C\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add dotenv
+  C:\Program Files\nodejs\node.exe C:\Users\Nic_C\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add cors
 
 PATH: 
-  C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\dotnet\;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\;C:\Users\Nic_C\AppData\Local\Microsoft\WindowsApps;C:\Users\Nic_C\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Nic_C\AppData\Roaming\npm;C:\Users\Nic_C\AppData\Local\Android\Sdk\emulator;C:\Users\Nic_C\Downloads\Media Installations\deretore-toolkit-v0.8.1.176-alpha-b176\Release;C:\Users\Nic_C\Downloads\Media Installations\ffmpeg-2021-12-06-git-ef00d40e32-full_build\bin;C:\Users\Nic_C\Downloads\Media Installations\VGM;C:\Program Files\Sublime Text;C:\Users\Nic_C\AppData\Local\Android\Sdk\platform-tools;C:\Users\Nic_C\AppData\Roaming\Terraform;C:\Users\Nic_C\.dotnet\tools
+  C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\dotnet\;C:\Program Files\Neovim\/bin;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\;C:\Users\Nic_C\AppData\Local\Microsoft\WindowsApps;C:\Users\Nic_C\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Nic_C\AppData\Roaming\npm;C:\Users\Nic_C\AppData\Local\Android\Sdk\emulator;C:\Users\Nic_C\Downloads\Media Installations\deretore-toolkit-v0.8.1.176-alpha-b176\Release;C:\Users\Nic_C\Downloads\Media Installations\ffmpeg-2021-12-06-git-ef00d40e32-full_build\bin;C:\Users\Nic_C\Downloads\Media Installations\VGM;C:\Program Files\Sublime Text;C:\Users\Nic_C\AppData\Local\Android\Sdk\platform-tools;C:\Users\Nic_C\AppData\Roaming\Terraform;C:\Users\Nic_C\.dotnet\tools
 
 Yarn version: 
   1.22.17
@@ -29,6 +29,7 @@ npm manifest:
      },
      "dependencies": {
         "@types/express": "^4.17.13",
+        "class-validator": "^0.13.2",
         "express": "^4.18.1",
         "mysql2": "^2.3.3",
         "reflect-metadata": "^0.1.13",
@@ -273,6 +274,14 @@ Lockfile:
     dependencies:
       ansi-styles "^4.1.0"
       supports-color "^7.1.0"
+  
+  class-validator@^0.13.2:
+    version "0.13.2"
+    resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.13.2.tgz#64b031e9f3f81a1e1dcd04a5d604734608b24143"
+    integrity sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw==
+    dependencies:
+      libphonenumber-js "^1.9.43"
+      validator "^13.7.0"
   
   cli-highlight@^2.1.11:
     version "2.1.11"
@@ -602,6 +611,11 @@ Lockfile:
     integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
     dependencies:
       argparse "^2.0.1"
+  
+  libphonenumber-js@^1.9.43:
+    version "1.10.8"
+    resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.8.tgz#21925db0f16d4f1553dff2bbc62afdaeb03f21f0"
+    integrity sha512-MGgHrKRGE7sg7y0DikHybRDgTXcYv4HL+WwhDm5UAiChCNb5tcy5OEaU8XTTt5bDBwhZGCJNxoGMVBpZ4RfhIg==
   
   long@^4.0.0:
     version "4.0.0"
@@ -1025,6 +1039,11 @@ Lockfile:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz#6336e8d71965cb3d35a1bbb7868445a7c05264bf"
     integrity sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==
+  
+  validator@^13.7.0:
+    version "13.7.0"
+    resolved "https://registry.yarnpkg.com/validator/-/validator-13.7.0.tgz#4f9658ba13ba8f3d82ee881d3516489ea85c0857"
+    integrity sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==
   
   vary@~1.1.2:
     version "1.1.2"

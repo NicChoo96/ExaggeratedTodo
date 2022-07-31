@@ -7,8 +7,8 @@ COPY . .
 # RUN yarn -init y
 RUN yarn
 
-# RUN yarn run build
 ENTRYPOINT ["yarn", "run", "dev"]
+# RUN yarn run build
 
 # FROM nginx:1.15
 

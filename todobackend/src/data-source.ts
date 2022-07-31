@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     password: process.env.MYSQL_ROOT_PASSWORD || "password",
     database: process.env.MYSQL_DATABASE || "todo_db",
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [TodoList],
     subscribers: [],
     migrations: []

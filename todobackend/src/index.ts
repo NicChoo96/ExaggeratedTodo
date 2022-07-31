@@ -1,11 +1,20 @@
 import type { Request, Response } from 'express';
 import * as express from 'express'
+import * as cors from 'cors'
 import { AppDataSource } from './data-source';
 import { TodoController } from './controller/todoListController';
 import { validate } from 'class-validator';
 import { checkTodoShape, extractTodoItem } from './interfaces/TodoItemInterface';
 
+let corsOptions = {
+  "origin" : ['localhost:8080'],
+  "Access-Control-Allow-Origin": "*"
+}
+
+// const options: cors.CorsOptions = corsOptions;
+
 const app = express()
+app.use(cors(corsOptions))
 app.use(express.json());
 const port = 3001
 let isConnected = false;
@@ -36,7 +45,7 @@ app.get('/api/view', async (req: Request, res: Response) => {
 
 })
 
-app.get('/api/add', async (req: Request, res: Response) => {
+app.get('/api/add', cors(corsOptions), async (req: Request, res: Response) => {
 
   if (!req.body) {
     res.send({ error: "Forbidden input", status: 403 })
@@ -82,8 +91,6 @@ app.get('/api/update', async (req: Request, res: Response) => {
   const inputTodo = extractTodoItem(input)
   const result = await todoController.updateExisting(inputTodo, input.todoId)
   res.send(result)
-
-
 })
 
 app.get('/api/delete', async (req: Request, res: Response) => {
