@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Nic_C\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add cors
+  C:\Program Files\nodejs\node.exe C:\Users\Nic_C\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add body-parser
 
 PATH: 
   C:\Program Files\Oculus\Support\oculus-runtime;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\dotnet\;C:\Program Files\Neovim\/bin;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Nic_C\AppData\Local\Programs\Python\Python310\;C:\Users\Nic_C\AppData\Local\Microsoft\WindowsApps;C:\Users\Nic_C\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Nic_C\AppData\Roaming\npm;C:\Users\Nic_C\AppData\Local\Android\Sdk\emulator;C:\Users\Nic_C\Downloads\Media Installations\deretore-toolkit-v0.8.1.176-alpha-b176\Release;C:\Users\Nic_C\Downloads\Media Installations\ffmpeg-2021-12-06-git-ef00d40e32-full_build\bin;C:\Users\Nic_C\Downloads\Media Installations\VGM;C:\Program Files\Sublime Text;C:\Users\Nic_C\AppData\Local\Android\Sdk\platform-tools;C:\Users\Nic_C\AppData\Roaming\Terraform;C:\Users\Nic_C\.dotnet\tools
@@ -30,6 +30,7 @@ npm manifest:
      "dependencies": {
         "@types/express": "^4.17.13",
         "class-validator": "^0.13.2",
+        "cors": "^2.8.5",
         "express": "^4.18.1",
         "mysql2": "^2.3.3",
         "reflect-metadata": "^0.1.13",
@@ -342,6 +343,14 @@ Lockfile:
     version "0.5.0"
     resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
     integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
+  
+  cors@^2.8.5:
+    version "2.8.5"
+    resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.5.tgz#eac11da51592dd86b9f06f6e7ac293b3df875d29"
+    integrity sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==
+    dependencies:
+      object-assign "^4"
+      vary "^1"
   
   create-require@^1.1.0:
     version "1.1.1"
@@ -736,7 +745,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
     integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
   
-  object-assign@^4.0.1:
+  object-assign@^4, object-assign@^4.0.1:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
     integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
@@ -1045,7 +1054,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/validator/-/validator-13.7.0.tgz#4f9658ba13ba8f3d82ee881d3516489ea85c0857"
     integrity sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==
   
-  vary@~1.1.2:
+  vary@^1, vary@~1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
     integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==

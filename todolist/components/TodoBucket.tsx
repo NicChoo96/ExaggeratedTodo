@@ -44,7 +44,7 @@ const TodoBucket: React.FC<todoBucketType> = ({ todoArray, addNewTodo }) => {
         console.log(todoPostData)
         setInputValue("")
 
-        await addNewTodo(todoPostData)
+        console.log(await addNewTodo(todoPostData))
         console.log("FINISH")
     }
 

@@ -18,7 +18,8 @@ const Home: NextPage = ({data}:any) => {
   const addNewTodo = async(data:todoPostInterface)=> {
 
     const headers = {
-      "Content-Type": "application/json; charset:utf8"
+      // "Content-Type": "application/json; 'text/json';"
+      "content-type": "application/json"
     }
   
     const api_url = `http://localhost:8081/api/add`
@@ -26,9 +27,9 @@ const Home: NextPage = ({data}:any) => {
     try{
       console.log(api_url, data)
       const response = await axios.post(api_url, data, {headers: headers})
-      setResponseData(response)
+      return response
     }catch(error){
-      
+      return error
     }
   }
 
@@ -40,7 +41,8 @@ const Home: NextPage = ({data}:any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className='font-bold text-2xl'>Todo List</h1>
-      <div className='flex flex-row gap-8'>
+      <TodoBucket todoArray={data} addNewTodo={addNewTodo} />
+      {/* <div className='flex flex-row gap-8'>
         {
           [1,2,3].map((numb, idx)=> {
             return(
@@ -48,7 +50,7 @@ const Home: NextPage = ({data}:any) => {
             )
           })
         }
-      </div>
+      </div> */}
     </div>
   )
 }

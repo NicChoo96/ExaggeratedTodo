@@ -1,20 +1,23 @@
 import type { Request, Response } from 'express';
 import * as express from 'express'
 import * as cors from 'cors'
+import * as bodyParser from 'body-parser'
 import { AppDataSource } from './data-source';
 import { TodoController } from './controller/todoListController';
 import { validate } from 'class-validator';
 import { checkTodoShape, extractTodoItem } from './interfaces/TodoItemInterface';
 
 let corsOptions = {
-  "origin" : ['localhost:8080'],
+  "origin": '*',
   "Access-Control-Allow-Origin": "*"
 }
 
-// const options: cors.CorsOptions = corsOptions;
-
 const app = express()
 app.use(cors(corsOptions))
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+// app.use(bodyParser.json())
 app.use(express.json());
 const port = 3001
 let isConnected = false;
@@ -29,14 +32,14 @@ app.get('/', async (req: Request, res: Response) => {
   if (isConnected) {
     res.send("Connection is UP")
   } else {
-    res.send("Server is not connected to the database!")
+    res.status(500).send("Server is not connected to the database!")
   }
   // res.send('Hello World, my name is JEFF')
 })
 
 app.get('/api/view', async (req: Request, res: Response) => {
   if (!isConnected) {
-    res.send("Server is not connected to the database!")
+    res.status(500).send("Server is not connected to the database!")
     return
   }
 
@@ -45,46 +48,48 @@ app.get('/api/view', async (req: Request, res: Response) => {
 
 })
 
-app.get('/api/add', cors(corsOptions), async (req: Request, res: Response) => {
+app.post('/api/add', async (req: Request, res: Response) => {
 
   if (!req.body) {
-    res.send({ error: "Forbidden input", status: 403 })
+    res.status(403).send("Body Forbidden input")
     return
   }
 
   if (!isConnected) {
-    res.send("Server is not connected to the database!")
+    res.status(500).send("Server is not connected to the database!")
     return
   }
 
   const input = req.body
 
+  console.log(input)
+
   if (!checkTodoShape(input)) {
-    res.send({ error: "Forbidden input", status: 403 })
+    res.status(403).send("Shape Forbidden input")
     return
   }
-  
+
   const result = await todoController.addNew(input)
   res.send(result)
 
 
 })
 
-app.get('/api/update', async (req: Request, res: Response) => {
+app.post('/api/update', async (req: Request, res: Response) => {
 
   if (!req.body) {
-    res.send({ error: "Forbidden input", status: 403 })
+    res.status(403).send("Body Forbidden input")
     return
   }
 
   if (!isConnected) {
-    res.send("Server is not connected to the database!")
+    res.status(500).send("Server is not connected to the database!")
     return
   }
 
   const input = req.body
   if (!checkTodoShape(input)) {
-    res.send({ error: "Forbidden input", status: 403 })
+    res.status(403).send("Shape Forbidden input")
     return
   }
 
@@ -93,21 +98,23 @@ app.get('/api/update', async (req: Request, res: Response) => {
   res.send(result)
 })
 
-app.get('/api/delete', async (req: Request, res: Response) => {
-  if (req.body) {
-    if (isConnected) {
-      const input = req.body
-
-      const result = await todoController.deleteExisting(input.todoId)
-      res.send(result)
-      return
-    } else {
-      res.send("Server is not connected to the database!")
-    }
-    // res.send('Hello World, my name is JEFF')
-  } else {
-    res.send({ error: "Forbidden input", status: 403 })
+app.post('/api/delete', async (req: Request, res: Response) => {
+  if (!req.body) {
+    res.status(403).send("Body Forbidden input")
+    return
   }
+
+  if (!isConnected) {
+    res.status(500).send("Server is not connected to the database!")
+    return
+  }
+
+  const input = req.body
+
+  const result = await todoController.deleteExisting(input.todoId)
+  res.send(result)
+  return
+  // res.send('Hello World, my name is JEFF')
 
 })
 

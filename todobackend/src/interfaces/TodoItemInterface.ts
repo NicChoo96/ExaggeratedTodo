@@ -15,13 +15,13 @@ const todoItemShape = {
 }
 
 export const checkTodoShape = (inputItem: any):boolean => {
-    if(!inputItem || typeof(inputItem) === 'undefined'){
-        return false
-    }
 
     const todoKeys = Object.keys(todoItemShape)
 
+    console.log(todoKeys)
+
     for(let i = 0; i < todoKeys.length; i++){
+        console.log("ITEM", inputItem[todoKeys[i]], inputItem)
         if(typeof(inputItem[todoKeys[i]]) === 'undefined'){
             return false
         }
