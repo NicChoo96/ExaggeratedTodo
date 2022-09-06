@@ -10,12 +10,14 @@ export type todoItemType = {
     todo_title: string,
     todo_desc: string,
     order_no: number,
-    created_at: string
+    created_at: string,
+    deleteTodo: Function
 }
 
 type todoBucketType = {
     todoArray: todoItemType[],
-    addNewTodo: Function
+    addNewTodo: Function,
+    deleteTodo: Function
 }
 
 export interface todoPostInterface {
@@ -25,7 +27,7 @@ export interface todoPostInterface {
     deadline: Nullable<Date>
 }
 
-const TodoBucket: React.FC<todoBucketType> = ({ todoArray, addNewTodo }) => {
+const TodoBucket: React.FC<todoBucketType> = ({ todoArray, addNewTodo, deleteTodo }) => {
 
     const todoList = todoArray
 
@@ -44,7 +46,7 @@ const TodoBucket: React.FC<todoBucketType> = ({ todoArray, addNewTodo }) => {
         console.log(todoPostData)
         setInputValue("")
 
-        console.log(await addNewTodo(todoPostData))
+        await addNewTodo(todoPostData)
         console.log("FINISH")
     }
 
@@ -53,7 +55,7 @@ const TodoBucket: React.FC<todoBucketType> = ({ todoArray, addNewTodo }) => {
             {
                 todoList.map((t: todoItemType, idx: number) => {
                     return (
-                        <TodoItem key={idx} {...t} />
+                        <TodoItem key={idx} {...t} deleteTodo={deleteTodo} />
                     )
                 })
             }

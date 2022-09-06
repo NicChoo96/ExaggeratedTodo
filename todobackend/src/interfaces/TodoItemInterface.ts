@@ -18,8 +18,6 @@ export const checkTodoShape = (inputItem: any):boolean => {
 
     const todoKeys = Object.keys(todoItemShape)
 
-    console.log(todoKeys)
-
     for(let i = 0; i < todoKeys.length; i++){
         console.log("ITEM", inputItem[todoKeys[i]], inputItem)
         if(typeof(inputItem[todoKeys[i]]) === 'undefined'){
